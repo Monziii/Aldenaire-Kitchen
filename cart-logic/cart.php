@@ -227,7 +227,7 @@ $total = 0;
     <h1>Your Cart</h1>
 
     <?php if (empty($cart)): ?>
-      <p class="empty-cart">Your cart is empty. <a href="../public/menu.php">Go to Menu</a></p>
+      <p class="empty-cart">Your cart is empty. <a href="menu.php">Go to Menu</a></p>
     <?php else: ?>
 
       <form method="POST" action="cart.php" style="margin-bottom: 40px;">

@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           <div class="thank-you-container">
             <h1>Thank You!</h1>
             <p>We received your message successfully. Our team will get back to you shortly.</p>
-            <a href="../public/contact.php" class="button">Back to Contact Page</a>
+            <a href="/Final_project/contact.php" class="button">Back to Contact Page</a>
           </div>
         </body>
         </html>

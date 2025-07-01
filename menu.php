@@ -1,5 +1,5 @@
 <?php
-require '../includes/db.php'; 
+require 'includes/db.php'; 
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -10,7 +10,7 @@ $stmt = $conn->query($query);  // PDO statement
 $menu_items = $stmt->fetchAll();
 ?>
 
-<?php require '../view/header.php'; ?>
+<?php require 'view/header.php'; ?>
 
 <section class="menu-section">
   <h1>Our Menu</h1>
@@ -19,7 +19,7 @@ $menu_items = $stmt->fetchAll();
     <div class="menu-container">
       <?php foreach ($menu_items as $row): ?>
         <div class="menu-card">
-          <img src="../assets/images/<?php echo htmlspecialchars($row['image_path']); ?>" alt="<?php echo htmlspecialchars($row['item_name']); ?>">
+          <img src="assets/images/<?php echo htmlspecialchars($row['image_path']); ?>" alt="<?php echo htmlspecialchars($row['item_name']); ?>">
           <h3><?php echo htmlspecialchars($row['item_name']); ?></h3>
           <p><?php echo htmlspecialchars($row['description']); ?></p>
           <p>Price: $<?php echo number_format($row['price'], 2); ?></p>
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.classList.add('added');
       this.textContent = 'Item Added';
 
-      fetch(`../cart-logic/add_to_cart.php?item_id=${itemId}`)
+      fetch(`cart-logic/add_to_cart.php?item_id=${itemId}`)
         .then(response => {
           if (!response.ok) throw new Error('Failed to add item');
           return response.text();
@@ -136,4 +136,4 @@ function showToast(message) {
 }
 </script>
 
-<?php require '../view/footer.php'; ?>
+<?php require 'view/footer.php'; ?>

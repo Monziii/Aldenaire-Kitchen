@@ -1,4 +1,4 @@
-<?php require '../view/header.php'; ?>
+<?php require 'view/header.php'; ?>
 
 <style>
   *, *::before, *::after {
@@ -125,7 +125,7 @@
 <section class="contact-section">
   <h1>Contact Us</h1>
 
-  <form class="contact-form" method="post" action="../includes/handle-contact.php">
+  <form class="contact-form" method="post" action="includes/handle-contact.php">
     <div class="form-group">
       <label for="email">Your Email</label>
       <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
@@ -142,4 +142,4 @@
   </form>
 </section>
 
-<?php require '../view/footer.php'; ?>
+<?php require 'view/footer.php'; ?>

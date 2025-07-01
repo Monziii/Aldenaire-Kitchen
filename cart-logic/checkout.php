@@ -136,7 +136,7 @@ try {
       <div class="success-container" role="alert" aria-live="polite">
         <h2>✅ Order placed successfully!</h2>
         <p>Thank you for your purchase. Your order is being processed.</p>
-        <a href="../public/index.php" class="btn-home" role="button">Return to Home</a>
+        <a href="../index.php" class="btn-home" role="button">Return to Home</a>
       </div>
     </body>
     </html>

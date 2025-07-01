@@ -18,7 +18,7 @@ $cartCount = isset($_SESSION['cart']) ? array_sum(array_column($_SESSION['cart']
 
   <header>
     <div class="logo">
-      <img src="../assets/images/logo.png" alt="Logo" />
+      <img src="assets/images/logo.png" alt="Logo" />
     </div>
     <nav class="main-nav">
       <ul>
@@ -28,7 +28,7 @@ $cartCount = isset($_SESSION['cart']) ? array_sum(array_column($_SESSION['cart']
         <li><a href="reviews.php" class="<?= $currentPage == 'reviews.php' ? 'active' : '' ?>">Reviews</a></li>
         <li><a href="contact.php" class="<?= $currentPage == 'contact.php' ? 'active' : '' ?>">Contact</a></li>
         <li>
-          <a href="../cart-logic/cart.php" id="myOrdersLink">My Orders 🛒 <span id="cart-count" style="background:orange; color:#fff; padding:2px 8px; border-radius:50%; font-size:0.8rem;">
+          <a href="cart-logic/cart.php" id="myOrdersLink">My Orders 🛒 <span id="cart-count" style="background:orange; color:#fff; padding:2px 8px; border-radius:50%; font-size:0.8rem;">
           <?= isset($_SESSION['cart']) ? array_sum(array_column($_SESSION['cart'], 'quantity')) : 0 ?>
           </span>
           </a>

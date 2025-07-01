@@ -1,7 +1,7 @@
 <?php 
 session_start();
-require '../view/header.php'; 
-require '../includes/db.php'; 
+require 'view/header.php'; 
+require 'includes/db.php'; 
 ?>
 
 <style>
@@ -298,7 +298,7 @@ require '../includes/db.php';
   
   <div class="add-review-section">
     <h2>Share Your Experience</h2>
-    <form class="review-form" method="post" action="../includes/handle_review.php">
+    <form class="review-form" method="post" action="includes/handle_review.php">
       <?php if(isset($_SESSION['user_id'])): ?>
         <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
       <?php else: ?>
@@ -350,4 +350,4 @@ require '../includes/db.php';
   </div>
 </section>
 
-<?php require '../view/footer.php'; ?>
+<?php require 'view/footer.php'; ?>

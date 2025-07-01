@@ -1,6 +1,6 @@
 <?php
-require '../includes/db.php';
-require '../view/header.php';
+require 'includes/db.php';
+require 'view/header.php';
 
 $searchQuery = '';
 $menu_items = [];
@@ -30,7 +30,7 @@ if (isset($_GET['search']) && !empty(trim($_GET['search']))) {
     </div>
   </div>
   <div class="hero-image">
-    <img src="../assets/images/3.png" alt="Salad Image">
+    <img src="assets/images/3.png" alt="Salad Image">
   </div>
 </section>
 
@@ -53,7 +53,7 @@ if (isset($_GET['search']) && !empty(trim($_GET['search']))) {
     <?php else: ?>
       <?php foreach($menu_items as $item): ?>
         <div class="menu-card">
-          <img src="../assets/images/<?= htmlspecialchars($item['image_path']) ?>" alt="<?= htmlspecialchars($item['item_name']) ?>">
+          <img src="assets/images/<?= htmlspecialchars($item['image_path']) ?>" alt="<?= htmlspecialchars($item['item_name']) ?>">
           <h4><?= htmlspecialchars($item['item_name']) ?></h4>
           <div class="stars">
             <?php 
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.classList.add('added');
       this.textContent = 'Item Added';
 
-      fetch(`../cart-logic/add_to_cart.php?item_id=${itemId}`)
+      fetch(`cart-logic/add_to_cart.php?item_id=${itemId}`)
         .then(response => {
           if (!response.ok) throw new Error('Failed to add item');
           return response.text();
@@ -187,5 +187,5 @@ function showToast(message = 'Item added to cart!') {
 </script>
 
 <?php
-require '../view/footer.php';
+require 'view/footer.php';
 ?>

@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($required as $field) {
         if (empty($_POST[$field])) {
             $_SESSION['error'] = "Please fill all required fields";
-            header("Location: ../public/reviews.php");
+            header("Location: reviews.php");
             exit();
         }
     }
@@ -36,6 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['error'] = "There was an error submitting your review. Please try again.";
     }
 
-    header("Location: ../public/reviews.php");
+    header("Location: ../reviews.php");
     exit();
 }

@@ -1,4 +1,4 @@
-<?php require '../view/header.php'; ?>
+<?php require 'view/header.php'; ?>
 
 <style>
   html, body {
@@ -110,9 +110,9 @@
       </p>
     </div>
     <div class="about-image">
-      <img src="../assets/images/about.jpg" alt="Aldenaire Kitchen Chefs">
+      <img src="assets/images/about.jpg" alt="Aldenaire Kitchen Chefs">
     </div>
   </div>
 </section>
 
-<?php require '../view/footer.php'; ?>
+<?php require 'view/footer.php'; ?>

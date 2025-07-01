@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require '../includes/db.php';  
+require 'includes/db.php';  
 
 if (!isset($_GET['item_id'])) {
     die("Item not found.");
