@@ -196,7 +196,7 @@ const Reviews = () => {
 
               <button 
                 type="submit" 
-                className="submit-button"
+                className="submit-btn"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Review'}
