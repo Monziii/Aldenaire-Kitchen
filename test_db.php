@@ -46,9 +46,9 @@ try {
         SELECT 
             m.*,
             COALESCE(AVG(r.rating), 0) as avg_rating,
-            COUNT(r.review_id) as review_count
+            COUNT(r.id) as review_count
         FROM menu_items m
-        LEFT JOIN reviews r ON m.item_id = r.item_id AND r.is_approved = 1
+        LEFT JOIN reviews r ON r.is_approved = 1
         WHERE m.is_available = 1
         GROUP BY m.item_id
         ORDER BY m.item_id
