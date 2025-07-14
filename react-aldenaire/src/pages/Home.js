@@ -106,6 +106,11 @@ const Home = ({ cartCount, addToCart }) => {
     console.log('Search query:', searchQuery);
   };
 
+  // تصفية العناصر حسب البحث
+  const filteredItems = menuItems.filter(item =>
+    item.item_name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="home">
       <section className="hero">
@@ -140,10 +145,10 @@ const Home = ({ cartCount, addToCart }) => {
         <br />
 
         <div className="menu-items">
-          {menuItems.length === 0 ? (
+          {filteredItems.length === 0 ? (
             <p>No items found matching your search.</p>
           ) : (
-            menuItems.slice(0, 6).map(item => (
+            filteredItems.slice(0, 6).map(item => (
               <MenuCard 
                 key={item.item_id} 
                 item={item} 
