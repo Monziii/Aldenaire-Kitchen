@@ -59,7 +59,7 @@ const Home = ({ cartCount, addToCart }) => {
 
   const fetchMenuItems = async () => {
     try {
-      const response = await fetch('/api/menu.php');
+      const response = await fetch('http://localhost/Final_project/api/menu.php');
       if (!response.ok) {
         throw new Error('Failed to fetch menu items');
       }
@@ -126,7 +126,7 @@ const Home = ({ cartCount, addToCart }) => {
           </div>
         </div>
         <div className="hero-image">
-          <img src={process.env.PUBLIC_URL + "/assets/images/3.png"} alt="Fresh salad with vegetables" />
+          <img src="http://localhost/Final_project/assets/images/3.png" alt="Fresh salad with vegetables" />
         </div>
       </section>
 

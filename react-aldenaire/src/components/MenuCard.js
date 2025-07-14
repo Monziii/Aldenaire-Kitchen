@@ -34,8 +34,12 @@ const MenuCard = ({ item, onAddToCart, isProcessing = false }) => {
     <div className="menu-card">
       <div className={`card-image ${isCalamari ? 'calamari-image' : ''}`}>
         <img 
-          src={process.env.PUBLIC_URL + "/assets/images/" + item.image_path}
+          src={"http://localhost/Final_project/assets/images/" + item.image_path}
           alt={item.item_name}
+          onError={(e) => {
+            e.target.style.display = 'none';
+            console.log('Image failed to load:', item.image_path);
+          }}
         />
       </div>
       

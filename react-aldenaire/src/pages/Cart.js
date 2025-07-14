@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { api } from '../utils/api';
 import './Cart.css';
 
 const Cart = ({ cartItems, removeFromCart, updateCartItemQuantity, clearCart }) => {
@@ -44,20 +45,7 @@ const Cart = ({ cartItems, removeFromCart, updateCartItemQuantity, clearCart }) 
 
       // Try to save to database first
       try {
-        const response = await fetch('/api/orders.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(orderData)
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to place order');
-        }
-
-        const data = await response.json();
+        const data = await api.submitOrder(orderData);
         console.log('Order saved to database:', data);
       } catch (apiError) {
         console.error('API Error:', apiError);
@@ -109,7 +97,7 @@ const Cart = ({ cartItems, removeFromCart, updateCartItemQuantity, clearCart }) 
               {cartItems.map(item => (
                 <div key={item.item_id} className="cart-item">
                   <div className="item-image">
-                    <img src={process.env.PUBLIC_URL + "/assets/images/" + item.image_path} alt={item.item_name} />
+                    <img src={"http://localhost/Final_project/assets/images/" + item.image_path} alt={item.item_name} />
                   </div>
                   <div className="item-details">
                     <h3>{item.item_name}</h3>

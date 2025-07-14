@@ -13,7 +13,7 @@ define('DB_PASS', '');
 
 // Application Configuration
 define('APP_NAME', 'Aldenaire Kitchen');
-define('APP_URL', 'http://localhost:8000');
+define('APP_URL', 'http://localhost/Final_project');
 define('APP_VERSION', '1.0.0');
 
 // Restaurant Information
@@ -103,18 +103,42 @@ function is_ajax_request() {
 }
 
 function send_json_response($data, $status_code = 200) {
-    http_response_code($status_code);
-    header('Content-Type: application/json');
-    header('Access-Control-Allow-Origin: *');
+    // Enhanced CORS Configuration
+    $allowed_origins = [
+        'http://localhost:3000',
+        'http://localhost:3001',
+        'http://127.0.0.1:3000',
+        'http://127.0.0.1:3001',
+        'http://localhost',
+        'http://localhost/Final_project',
+        'https://aldenaire.com',
+        'https://www.aldenaire.com'
+    ];
+
+    $origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
+    if (in_array($origin, $allowed_origins)) {
+        header("Access-Control-Allow-Origin: $origin");
+    } else {
+        header('Access-Control-Allow-Origin: *');
+    }
+
+    header('Access-Control-Allow-Credentials: true');
     header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept, Origin, Cache-Control');
+    header('Access-Control-Max-Age: 86400');
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: DENY');
+    header('X-XSS-Protection: 1; mode=block');
     
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         http_response_code(200);
         exit;
     }
     
-    echo json_encode($data);
+    http_response_code($status_code);
+    header('Content-Type: application/json; charset=utf-8');
+    
+    echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     exit;
 }
 

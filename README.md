@@ -1,95 +1,187 @@
-# Aldenaire Kitchen
+# Aldenaire Kitchen - Restaurant Website
 
-A modern, responsive restaurant website built with PHP, MySQL, and React.
+A modern restaurant website built with React frontend and PHP backend, served through XAMPP.
 
-## Features
+## 🚀 Features
 
-- Dynamic menu with images and categories
-- Customer reviews and ratings
-- Shopping cart and order management
-- Contact form
-- Responsive design for all devices
-- RESTful API (PHP backend)
-- Modern React frontend
+- **Modern React Frontend**: Built with React 19 and React Router
+- **PHP Backend API**: RESTful API endpoints for menu, reviews, orders, and contact
+- **MySQL Database**: Local database using XAMPP
+- **Responsive Design**: Mobile-first responsive design
+- **CORS Optimized**: Proper CORS configuration for cross-origin requests
+- **Production Ready**: Optimized build served through Apache
 
-## Getting Started
+## 🛠️ Technology Stack
 
-### Prerequisites
+- **Frontend**: React 19, React Router DOM, CSS3
+- **Backend**: PHP 8.1, MySQL
+- **Server**: Apache (XAMPP)
+- **Database**: MySQL (XAMPP)
 
-- Node.js (v14+)
-- npm
-- PHP (v7.4+)
-- MySQL
-- XAMPP or MAMP (recommended for local development)
-
-### Installation
-
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/aldenaire/kitchen.git
-   cd kitchen
-   ```
-
-````
-2. **Install React dependencies:**
-   ```sh
-cd react-aldenaire
-npm install
-cd ..
-````
-
-3. **Set up the database:**
-
-   - Import `aldenaire_db.sql` into your MySQL server (via phpMyAdmin or command line):
-     ```sh
-     mysql -u root < aldenaire_db.sql
-     ```
-   - Ensure your database credentials in `config.php` are correct.
-
-4. **Start the servers:**
-
-   - **PHP Backend:**
-     ```sh
-     php -S localhost:8000
-     ```
-   - **React Frontend:**
-     ```sh
-     cd react-aldenaire
-     npm start
-     ```
-
-5. **Access the app:**
-   - React Frontend: [http://localhost:3000](http://localhost:3000)
-   - PHP Backend/API: [http://localhost:8000](http://localhost:8000)
-
-## API Endpoints
-
-- `/api/menu.php` - Get menu items
-- `/api/reviews.php` - Get/add reviews
-- `/api/contact.php` - Contact form
-- `/api/orders.php` - Place orders
-
-## Folder Structure
+## 📁 Project Structure
 
 ```
 Final_project/
-  ├── api/
-  ├── assets/
-  ├── css/
-  ├── includes/
-  ├── react-aldenaire/
-  ├── ...
+├── api/                    # PHP API endpoints
+│   ├── menu.php           # Menu items API
+│   ├── reviews.php        # Reviews API
+│   ├── orders.php         # Orders API
+│   ├── contact.php        # Contact form API
+│   └── config.php         # API configuration
+├── react-aldenaire/       # React development files
+│   ├── src/
+│   │   ├── components/    # React components
+│   │   ├── pages/         # React pages
+│   │   └── utils/         # Utility functions
+│   └── package.json
+├── static/                # Production build files
+├── assets/                # Images and static assets
+├── includes/              # PHP includes
+├── .htaccess             # Apache configuration
+└── index.html            # Main entry point
 ```
 
-## Security
+## 🚀 Quick Start
 
-See [SECURITY.md](SECURITY.md) for security policy and best practices.
+### Prerequisites
 
-## License
+1. **XAMPP**: Install XAMPP for macOS
+2. **Node.js**: Install Node.js (v16 or higher)
+3. **MySQL**: Use XAMPP's MySQL server
 
-MIT
+### Installation
 
-## Contact
+1. **Stop local MySQL service** (if running):
 
-- Email: info@aldenairekitchen.com
-- GitHub: https://github.com/aldenaire/kitchen
+   ```bash
+   brew services stop mysql
+   ```
+
+2. **Start XAMPP**:
+
+   - Open XAMPP Control Panel
+   - Start Apache and MySQL services
+
+3. **Install React dependencies**:
+
+   ```bash
+   cd react-aldenaire
+   npm install
+   ```
+
+4. **Build React app for production**:
+
+   ```bash
+   npm run build
+   ```
+
+5. **Copy build files**:
+
+   ```bash
+   cd ..
+   cp -r react-aldenaire/build/* .
+   ```
+
+6. **Access the application**:
+   - Open browser and go to: `http://localhost/Final_project`
+
+## 🔧 Development
+
+### Running in Development Mode
+
+```bash
+cd react-aldenaire
+npm start
+```
+
+This will start the React development server on `http://localhost:3000`
+
+### Building for Production
+
+```bash
+cd react-aldenaire
+npm run build
+cp -r build/* ..
+```
+
+## 🌐 API Endpoints
+
+### Menu API
+
+- **GET** `/api/menu.php` - Get all menu items
+
+### Reviews API
+
+- **GET** `/api/reviews.php` - Get all reviews
+- **POST** `/api/reviews.php` - Submit a new review
+
+### Orders API
+
+- **POST** `/api/orders.php` - Submit a new order
+
+### Contact API
+
+- **POST** `/api/contact.php` - Submit contact form
+
+## 🔒 CORS Configuration
+
+The application includes comprehensive CORS configuration supporting:
+
+- Development: `http://localhost:3000`
+- Production: `http://localhost/Final_project`
+- Future domains: `https://aldenaire.com`
+
+## 📱 Responsive Design
+
+The website is fully responsive and optimized for:
+
+- Desktop (1200px+)
+- Tablet (768px - 1199px)
+- Mobile (320px - 767px)
+
+## 🎨 UI/UX Features
+
+- Modern, clean design
+- Smooth animations and transitions
+- Toast notifications
+- Loading states
+- Error handling
+- Search functionality
+- Shopping cart system
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+1. **CORS Errors**: Ensure XAMPP is running and CORS headers are properly configured
+2. **Database Connection**: Verify MySQL is running in XAMPP
+3. **Build Issues**: Clear build cache and rebuild
+4. **Port Conflicts**: Stop other MySQL services before starting XAMPP
+
+### Debug Mode
+
+Enable debug mode in `config.php`:
+
+```php
+define('DEBUG_MODE', true);
+```
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📞 Support
+
+For support and questions, please contact the development team.
+
+---
+
+**Built with ❤️ for Aldenaire Kitchen**
