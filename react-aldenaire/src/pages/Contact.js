@@ -21,6 +21,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Submitting contact form...", formData);
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -35,7 +36,7 @@ const Contact = () => {
         return;
       }
 
-      const response = await fetch('http://localhost/Final_project/api/contact.php', {
+      const response = await fetch('/Final_project/api/contact.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
